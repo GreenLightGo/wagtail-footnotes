@@ -49,15 +49,13 @@ class FootnoteSource extends React.Component {
         var live_footnotes = document.querySelectorAll(
           "#id_footnotes-FORMS > li:not(.deleted)"
         );
-        Array.prototype.forEach.call(live_footnotes, function (value, i) {
+        Array.prototype.forEach.call(live_footnotes, function (value) {
           var text = $(".public-DraftEditor-content", value).text();
           var uuid = $('input[id*="-uuid"]', value)[0].value;
-          const index = i + 1;
           var row = $(
             "<tr data-uuid=" +
               uuid +
               "><td>" +
-              "[" + index + "] " +
               text +
               "</td><td>" +
               uuid.substring(0, 6) +
